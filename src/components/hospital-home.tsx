@@ -49,6 +49,13 @@ const serviceIcons = {
   ambulance: Ambulance,
 };
 
+const doctorPositionClasses = [
+  "doctor-grid-image-1",
+  "doctor-grid-image-2",
+  "doctor-grid-image-3",
+  "doctor-grid-image-4",
+];
+
 function Brand({ compact = false, inverse = false }: { compact?: boolean; inverse?: boolean }) {
   return (
     <a href="#top" className="group flex min-w-0 items-center gap-3" aria-label="Về đầu trang">
@@ -239,7 +246,7 @@ function Doctors({ doctors }: { doctors: Doctor[] }) {
                   width={1600}
                   height={1600}
                   loading="lazy"
-                  className={cn("doctor-grid-image", `doctor-grid-image-${index + 1}`)}
+                  className={cn("doctor-grid-image", doctorPositionClasses[index])}
                 />
               </div>
               <div className="px-3 pb-5 pt-4 text-center sm:px-5">
