@@ -49,7 +49,7 @@ const serviceIcons = {
   ambulance: Ambulance,
 };
 
-function Brand({ compact = false }: { compact?: boolean }) {
+function Brand({ compact = false, inverse = false }: { compact?: boolean; inverse?: boolean }) {
   return (
     <a href="#top" className="group flex min-w-0 items-center gap-3" aria-label="Về đầu trang">
       <span className="relative grid size-11 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground shadow-brand transition-transform group-hover:-translate-y-0.5">
@@ -58,8 +58,8 @@ function Brand({ compact = false }: { compact?: boolean }) {
         <span className="absolute -right-0.5 -top-1 h-3 w-5 rotate-[-28deg] rounded-full bg-hospital-green" />
       </span>
       <span className={cn("min-w-0 leading-tight", compact && "max-w-52")}>
-        <span className="block truncate text-xs font-bold uppercase text-primary">Bệnh viện đa khoa</span>
-        <span className="block truncate font-display text-base font-bold text-foreground sm:text-lg">
+        <span className={cn("block truncate text-xs font-bold uppercase", inverse ? "text-hospital-mint" : "text-primary")}>Bệnh viện đa khoa</span>
+        <span className={cn("block truncate font-display text-base font-bold sm:text-lg", inverse ? "text-footer-foreground" : "text-foreground")}>
           Châu Thành Nam Tân Uyên
         </span>
       </span>
@@ -259,7 +259,7 @@ function Footer() {
     <footer id="lien-he" className="scroll-mt-20 bg-footer text-footer-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:px-8 lg:py-16">
         <div>
-          <Brand />
+          <Brand inverse />
           <p className="mt-5 max-w-md text-sm leading-6 text-footer-muted">Chăm sóc sức khỏe bằng sự tận tâm, chuyên nghiệp và trách nhiệm với cộng đồng Tân Uyên.</p>
           <div className="mt-6 flex items-center gap-2 text-sm font-bold text-hospital-mint"><ShieldCheck className="size-5" /> An toàn · Tận tâm · Chuyên nghiệp</div>
         </div>
