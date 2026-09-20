@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { HelmetProvider } from "react-helmet-async";
+import FloatingContactButtons from "@/components/FloatingContactButtons";
+import AiPeekRobot from "@/components/AiPeekRobot";
 
 function NotFoundComponent() {
   return (
@@ -121,9 +125,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <HelmetProvider><QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-    </QueryClientProvider>
+      <SmoothScroll><Outlet /><FloatingContactButtons /><AiPeekRobot /></SmoothScroll>
+    </QueryClientProvider></HelmetProvider>
   );
 }

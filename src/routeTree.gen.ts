@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DatLichRouteImport } from './routes/dat-lich'
+import { Route as LienHeRouteImport } from './routes/lien-he'
+import { Route as BacSiIndexRouteImport } from './routes/bac-si/index'
+import { Route as BacSiIdRouteImport } from './routes/bac-si/$id'
+import { Route as ChuyenKhoaIndexRouteImport } from './routes/chuyen-khoa/index'
+import { Route as ChuyenKhoaSlugRouteImport } from './routes/chuyen-khoa/$slug'
+import { Route as DichVuIndexRouteImport } from './routes/dich-vu/index'
+import { Route as DichVuSlugRouteImport } from './routes/dich-vu/$slug'
+import { Route as TinTucSlugRouteImport } from './routes/tin-tuc/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DatLichRoute = DatLichRouteImport.update({
+  id: '/dat-lich',
+  path: '/dat-lich',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LienHeRoute = LienHeRouteImport.update({
+  id: '/lien-he',
+  path: '/lien-he',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BacSiIndexRoute = BacSiIndexRouteImport.update({
+  id: '/bac-si/',
+  path: '/bac-si/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BacSiIdRoute = BacSiIdRouteImport.update({
+  id: '/bac-si/$id',
+  path: '/bac-si/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChuyenKhoaIndexRoute = ChuyenKhoaIndexRouteImport.update({
+  id: '/chuyen-khoa/',
+  path: '/chuyen-khoa/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChuyenKhoaSlugRoute = ChuyenKhoaSlugRouteImport.update({
+  id: '/chuyen-khoa/$slug',
+  path: '/chuyen-khoa/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DichVuIndexRoute = DichVuIndexRouteImport.update({
+  id: '/dich-vu/',
+  path: '/dich-vu/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DichVuSlugRoute = DichVuSlugRouteImport.update({
+  id: '/dich-vu/$slug',
+  path: '/dich-vu/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TinTucSlugRoute = TinTucSlugRouteImport.update({
+  id: '/tin-tuc/$slug',
+  path: '/tin-tuc/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dat-lich': typeof DatLichRoute
+  '/lien-he': typeof LienHeRoute
+  '/bac-si/$id': typeof BacSiIdRoute
+  '/chuyen-khoa/$slug': typeof ChuyenKhoaSlugRoute
+  '/dich-vu/$slug': typeof DichVuSlugRoute
+  '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/bac-si/': typeof BacSiIndexRoute
+  '/chuyen-khoa/': typeof ChuyenKhoaIndexRoute
+  '/dich-vu/': typeof DichVuIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dat-lich': typeof DatLichRoute
+  '/lien-he': typeof LienHeRoute
+  '/bac-si/$id': typeof BacSiIdRoute
+  '/chuyen-khoa/$slug': typeof ChuyenKhoaSlugRoute
+  '/dich-vu/$slug': typeof DichVuSlugRoute
+  '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/bac-si': typeof BacSiIndexRoute
+  '/chuyen-khoa': typeof ChuyenKhoaIndexRoute
+  '/dich-vu': typeof DichVuIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dat-lich': typeof DatLichRoute
+  '/lien-he': typeof LienHeRoute
+  '/bac-si/$id': typeof BacSiIdRoute
+  '/chuyen-khoa/$slug': typeof ChuyenKhoaSlugRoute
+  '/dich-vu/$slug': typeof DichVuSlugRoute
+  '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/bac-si/': typeof BacSiIndexRoute
+  '/chuyen-khoa/': typeof ChuyenKhoaIndexRoute
+  '/dich-vu/': typeof DichVuIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dat-lich'
+    | '/lien-he'
+    | '/bac-si/$id'
+    | '/chuyen-khoa/$slug'
+    | '/dich-vu/$slug'
+    | '/tin-tuc/$slug'
+    | '/bac-si/'
+    | '/chuyen-khoa/'
+    | '/dich-vu/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dat-lich'
+    | '/lien-he'
+    | '/bac-si/$id'
+    | '/chuyen-khoa/$slug'
+    | '/dich-vu/$slug'
+    | '/tin-tuc/$slug'
+    | '/bac-si'
+    | '/chuyen-khoa'
+    | '/dich-vu'
+  id:
+    | '__root__'
+    | '/'
+    | '/dat-lich'
+    | '/lien-he'
+    | '/bac-si/$id'
+    | '/chuyen-khoa/$slug'
+    | '/dich-vu/$slug'
+    | '/tin-tuc/$slug'
+    | '/bac-si/'
+    | '/chuyen-khoa/'
+    | '/dich-vu/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DatLichRoute: typeof DatLichRoute
+  LienHeRoute: typeof LienHeRoute
+  BacSiIdRoute: typeof BacSiIdRoute
+  ChuyenKhoaSlugRoute: typeof ChuyenKhoaSlugRoute
+  DichVuSlugRoute: typeof DichVuSlugRoute
+  TinTucSlugRoute: typeof TinTucSlugRoute
+  BacSiIndexRoute: typeof BacSiIndexRoute
+  ChuyenKhoaIndexRoute: typeof ChuyenKhoaIndexRoute
+  DichVuIndexRoute: typeof DichVuIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dat-lich': {
+      id: '/dat-lich'
+      path: '/dat-lich'
+      fullPath: '/dat-lich'
+      preLoaderRoute: typeof DatLichRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lien-he': {
+      id: '/lien-he'
+      path: '/lien-he'
+      fullPath: '/lien-he'
+      preLoaderRoute: typeof LienHeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bac-si/': {
+      id: '/bac-si/'
+      path: '/bac-si'
+      fullPath: '/bac-si/'
+      preLoaderRoute: typeof BacSiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bac-si/$id': {
+      id: '/bac-si/$id'
+      path: '/bac-si/$id'
+      fullPath: '/bac-si/$id'
+      preLoaderRoute: typeof BacSiIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chuyen-khoa/': {
+      id: '/chuyen-khoa/'
+      path: '/chuyen-khoa'
+      fullPath: '/chuyen-khoa/'
+      preLoaderRoute: typeof ChuyenKhoaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chuyen-khoa/$slug': {
+      id: '/chuyen-khoa/$slug'
+      path: '/chuyen-khoa/$slug'
+      fullPath: '/chuyen-khoa/$slug'
+      preLoaderRoute: typeof ChuyenKhoaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu/': {
+      id: '/dich-vu/'
+      path: '/dich-vu'
+      fullPath: '/dich-vu/'
+      preLoaderRoute: typeof DichVuIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu/$slug': {
+      id: '/dich-vu/$slug'
+      path: '/dich-vu/$slug'
+      fullPath: '/dich-vu/$slug'
+      preLoaderRoute: typeof DichVuSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tin-tuc/$slug': {
+      id: '/tin-tuc/$slug'
+      path: '/tin-tuc/$slug'
+      fullPath: '/tin-tuc/$slug'
+      preLoaderRoute: typeof TinTucSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DatLichRoute: DatLichRoute,
+  LienHeRoute: LienHeRoute,
+  BacSiIdRoute: BacSiIdRoute,
+  ChuyenKhoaSlugRoute: ChuyenKhoaSlugRoute,
+  DichVuSlugRoute: DichVuSlugRoute,
+  TinTucSlugRoute: TinTucSlugRoute,
+  BacSiIndexRoute: BacSiIndexRoute,
+  ChuyenKhoaIndexRoute: ChuyenKhoaIndexRoute,
+  DichVuIndexRoute: DichVuIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,15 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { getBanners, getDoctors, getServices } from "../../lib/api";
-import { HospitalHome } from "@/components/hospital-home";
+import { getAll, getBanners, getNews, getServices, getStaffStats } from "@/lib/public-api";
+import { PublicShell } from "@/components/public-shell";
+import { Seo, faqSchema } from "@/components/Seo";
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    const [banners, services, doctors] = await Promise.all([
+    const [data, banners, services, news, staffStats] = await Promise.all([
+      getAll(),
       getBanners(),
       getServices(),
-      getDoctors(),
+      getNews(),
+      getStaffStats(),
     ]);
-    return { banners, services, doctors };
+    return { data, banners: banners.data, services: services.data, news: news.data, staffStats };
   },
   head: () => ({
     meta: [
@@ -26,5 +29,6 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const data = Route.useLoaderData();
-  return <HospitalHome {...data} />;
+  const hospitalName = data.data.settings.find((item) => item.ma_cai_dat === "ten_benh_vien")?.gia_tri || "Bệnh viện Đa khoa Tân Uyên";
+  return <><Seo data={data.data} title={`${hospitalName} - Bệnh viện Đa khoa Tân Uyên`} schema={faqSchema()} /><PublicShell {...data} /></>;
 }
